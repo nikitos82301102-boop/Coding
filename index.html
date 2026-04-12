@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siguro AeroChef Pro | Premium Air Fryer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#1C1917;
+  --on-primary:#FFFFFF;
+  --accent:#A16207;
+  --accent-hover:#92550A;
+  --bg:#FAFAF9;
+  --fg:#0C0A09;
+  --muted:#78716C;
+  --muted-bg:#F5F5F4;
+  --border:#E7E5E4;
+  --card:#FFFFFF;
+  --radius:8px;
+  --font:'DM Sans',system-ui,-apple-system,sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);color:var(--fg);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* Utility */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.section-label{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.03em;line-height:1.15;color:var(--primary);margin-bottom:24px}
+.section-subtitle{font-size:18px;color:var(--muted);max-width:560px;line-height:1.7;font-weight:400}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(250,250,249,0.85);border-bottom:1px solid var(--border);transition:background 0.3s}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1200px;margin:0 auto;padding:0 24px}
+.nav-brand{font-size:18px;font-weight:700;letter-spacing:-0.02em;color:var(--primary)}
+.nav-brand span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:14px;font-weight:500;color:var(--muted);transition:color 0.2s;cursor:pointer}
+.nav-links a:hover{color:var(--primary)}
+.nav-cta{background:var(--primary);color:var(--on-primary);padding:10px 24px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s,transform 0.2s;border:none}
+.nav-cta:hover{background:var(--accent)}
+.nav-cta:active{transform:scale(0.97)}
+
+/* Hero */
+.hero{padding-top:160px;padding-bottom:80px;text-align:center}
+.hero-label{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:inline-flex;align-items:center;gap:8px;background:rgba(161,98,7,0.08);padding:8px 20px;border-radius:100px}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;letter-spacing:-0.04em;line-height:1.08;color:var(--primary);margin-bottom:24px;max-width:800px;margin-left:auto;margin-right:auto}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);color:var(--muted);max-width:520px;margin:0 auto 40px;line-height:1.7;font-weight:400}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:80px}
+.btn-primary{background:var(--primary);color:var(--on-primary);padding:16px 40px;border-radius:100px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.25s;border:none;font-family:var(--font)}
+.btn-primary:hover{background:var(--accent);transform:translateY(-1px);box-shadow:0 8px 32px rgba(161,98,7,0.2)}
+.btn-primary:active{transform:scale(0.97)}
+.btn-secondary{background:transparent;color:var(--primary);padding:16px 40px;border-radius:100px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.25s;border:1.5px solid var(--border);font-family:var(--font)}
+.btn-secondary:hover{border-color:var(--primary);background:var(--primary);color:var(--on-primary)}
+.hero-image{max-width:600px;margin:0 auto;position:relative}
+.hero-image img{border-radius:24px;width:100%}
+.hero-image::after{content:'';position:absolute;inset:-24px;border-radius:40px;background:radial-gradient(ellipse at center,rgba(161,98,7,0.06) 0%,transparent 70%);z-index:-1}
+
+/* Stats */
+.stats{padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-value{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:700;letter-spacing:-0.03em;color:var(--primary)}
+.stat-label{font-size:13px;color:var(--muted);margin-top:4px;font-weight:500}
+
+/* Features */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.feature-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px 32px;transition:all 0.3s ease}
+.feature-card:hover{border-color:var(--accent);box-shadow:0 8px 40px rgba(0,0,0,0.04);transform:translateY(-4px)}
+.feature-icon{width:48px;height:48px;border-radius:12px;background:rgba(161,98,7,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.feature-icon svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.feature-card h3{font-size:18px;font-weight:600;letter-spacing:-0.01em;margin-bottom:12px;color:var(--primary)}
+.feature-card p{font-size:15px;color:var(--muted);line-height:1.7}
+
+/* Benefits */
+.benefits{background:var(--primary);color:var(--on-primary)}
+.benefits .section-label{color:rgba(161,98,7,0.9)}
+.benefits .section-title{color:#FFFFFF}
+.benefits .section-subtitle{color:rgba(255,255,255,0.6)}
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px;align-items:center}
+.benefits-list{display:flex;flex-direction:column;gap:32px}
+.benefit-item{display:flex;gap:20px;align-items:flex-start}
+.benefit-num{font-size:14px;font-weight:700;color:var(--accent);background:rgba(161,98,7,0.15);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.benefit-text h4{font-size:17px;font-weight:600;margin-bottom:6px}
+.benefit-text p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.6}
+.benefits-visual{display:flex;justify-content:center;align-items:center}
+.benefits-visual img{border-radius:20px;max-width:400px;width:100%;box-shadow:0 32px 64px rgba(0,0,0,0.3)}
+
+/* Specs */
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:56px;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.spec-item{padding:28px 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.spec-item:nth-child(odd){border-right:1px solid var(--border)}
+.spec-item:nth-last-child(-n+2){border-bottom:none}
+.spec-label{font-size:14px;color:var(--muted);font-weight:500}
+.spec-value{font-size:15px;font-weight:600;color:var(--primary)}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.gallery-item{border-radius:16px;overflow:hidden;aspect-ratio:1;background:var(--muted-bg);display:flex;align-items:center;justify-content:center;transition:transform 0.3s;cursor:pointer}
+.gallery-item:hover{transform:scale(1.02)}
+.gallery-item img{width:100%;height:100%;object-fit:cover}
+.gallery-placeholder{font-size:14px;color:var(--muted);font-weight:500}
+
+/* CTA */
+.cta-section{text-align:center;background:linear-gradient(180deg,var(--bg) 0%,#F0EDE8 100%)}
+.cta-section .section-title{max-width:600px;margin-left:auto;margin-right:auto}
+.cta-price{display:flex;align-items:baseline;justify-content:center;gap:12px;margin:32px 0}
+.cta-price .price{font-size:clamp(2rem,4vw,3.5rem);font-weight:700;letter-spacing:-0.03em;color:var(--primary)}
+.cta-price .price-note{font-size:14px;color:var(--muted)}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+
+/* Footer */
+footer{padding:48px 0;border-top:1px solid var(--border);text-align:center}
+footer p{font-size:13px;color:var(--muted)}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .features-grid{grid-template-columns:1fr}
+  .benefits-grid{grid-template-columns:1fr;gap:40px}
+  .benefits-visual{order:-1}
+  .specs-grid{grid-template-columns:1fr}
+  .spec-item:nth-child(odd){border-right:none}
+  .spec-item:nth-last-child(2){border-bottom:1px solid var(--border)}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .section{padding:64px 0}
+  .hero{padding-top:120px;padding-bottom:48px}
+}
+
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:0.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">SIGURO<span>.</span></a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#specs">Specs</a>
+      <a href="#gallery">Gallery</a>
+      <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Buy Now</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero container">
+  <div class="reveal">
+    <div class="hero-label">New Release</div>
+    <h1>Crispier. Healthier. Effortless.</h1>
+    <p>The Siguro AeroChef Pro delivers restaurant-quality crunch with up to 85% less oil. Precision digital controls. Zero compromise.</p>
+    <div class="hero-buttons">
+      <button class="btn-primary" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Order Now</button>
+      <button class="btn-secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore</button>
+    </div>
+  </div>
+  <div class="hero-image reveal">
+    <img src="product.jpg" alt="Siguro AeroChef Pro Air Fryer with golden fries in basket, digital display showing 180 degrees">
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid reveal">
+      <div>
+        <div class="stat-value">5.5L</div>
+        <div class="stat-label">Capacity</div>
+      </div>
+      <div>
+        <div class="stat-value">85%</div>
+        <div class="stat-label">Less Oil</div>
+      </div>
+      <div>
+        <div class="stat-value">180&deg;C</div>
+        <div class="stat-label">Max Temp</div>
+      </div>
+      <div>
+        <div class="stat-value">8</div>
+        <div class="stat-label">Smart Presets</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Features</div>
+      <div class="section-title">Engineered for precision.</div>
+      <div class="section-subtitle">Every detail refined to deliver consistent, golden results with a single touch.</div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Smart Touch Display</h3>
+        <p>Intuitive LED panel with real-time temperature readout and one-touch preset programs for effortless cooking.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2" stroke="#fff" fill="none"/></svg>
+        </div>
+        <h3>360&deg; Rapid Air</h3>
+        <p>Cyclonic hot air circulation ensures even cooking on all sides, delivering perfect crispness every time.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.77 4 4 0 0 1 0 6.76 4 4 0 0 1-4.78 4.77 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>8 Smart Presets</h3>
+        <p>Pre-programmed modes for fries, chicken, fish, steak, baking, and more. Perfect results, no guesswork.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20" stroke="#fff"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#fff" fill="none"/></svg>
+        </div>
+        <h3>Non-Stick Basket</h3>
+        <p>Premium PFOA-free coating for easy food release and effortless cleaning. Dishwasher-safe components.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Compact Footprint</h3>
+        <p>Sleek, space-efficient design fits any countertop. Matte black finish complements modern kitchens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="section benefits" id="benefits">
+  <div class="container">
+    <div class="benefits-grid">
+      <div>
+        <div class="reveal">
+          <div class="section-label">Why AeroChef Pro</div>
+          <div class="section-title">Cook smarter, eat better.</div>
+          <div class="section-subtitle">Designed for people who refuse to choose between flavor and health.</div>
+        </div>
+        <div class="benefits-list reveal">
+          <div class="benefit-item">
+            <div class="benefit-num">01</div>
+            <div class="benefit-text">
+              <h4>Guilt-Free Indulgence</h4>
+              <p>Crispy fries, juicy wings, golden pastries with up to 85% less fat than traditional deep frying.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-num">02</div>
+            <div class="benefit-text">
+              <h4>Dinner in Minutes</h4>
+              <p>Preheats in 3 minutes. Most meals ready in under 20. Spend less time cooking, more time living.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-num">03</div>
+            <div class="benefit-text">
+              <h4>Clean in Seconds</h4>
+              <p>Removable, dishwasher-safe basket and tray. No oil splatter. No greasy cleanup.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-num">04</div>
+            <div class="benefit-text">
+              <h4>Energy Efficient</h4>
+              <p>Uses up to 50% less energy than a conventional oven. Better for your wallet and the planet.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="benefits-visual reveal">
+        <img src="product.jpg" alt="Siguro AeroChef Pro Air Fryer detail view">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Specs -->
+<section class="section" id="specs">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Specifications</div>
+      <div class="section-title">The details that matter.</div>
+    </div>
+    <div class="specs-grid reveal">
+      <div class="spec-item">
+        <span class="spec-label">Capacity</span>
+        <span class="spec-value">5.5 Litres</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Power</span>
+        <span class="spec-value">1,700W</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Temperature</span>
+        <span class="spec-value">80&ndash;200&deg;C</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Timer</span>
+        <span class="spec-value">0&ndash;60 min</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Display</span>
+        <span class="spec-value">LED Touch Panel</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Presets</span>
+        <span class="spec-value">8 Programs</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Material</span>
+        <span class="spec-value">BPA-Free / PFOA-Free</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Finish</span>
+        <span class="spec-value">Matte Black</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Gallery</div>
+      <div class="section-title">See it from every angle.</div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="product.jpg" alt="Siguro AeroChef Pro front view">
+      </div>
+      <div class="gallery-item reveal" style="background:var(--primary)">
+        <img src="product.jpg" alt="Siguro AeroChef Pro side view" style="object-fit:contain;padding:24px;filter:brightness(1.1)">
+      </div>
+      <div class="gallery-item reveal" style="background:linear-gradient(135deg,#F5F5F4,#E7E5E4)">
+        <img src="product.jpg" alt="Siguro AeroChef Pro detail view" style="object-fit:contain;padding:24px">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section" id="cta">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Limited Availability</div>
+      <div class="section-title">Ready to upgrade your kitchen?</div>
+      <div class="section-subtitle" style="margin-left:auto;margin-right:auto">Join thousands who've made the switch to faster, healthier cooking with zero compromise on taste.</div>
+      <div class="cta-price">
+        <span class="price">&euro;89.99</span>
+        <span class="price-note">Free shipping</span>
+      </div>
+      <div class="cta-buttons">
+        <button class="btn-primary">Add to Cart</button>
+        <button class="btn-secondary">Compare Models</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Siguro. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Smooth nav links
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>
