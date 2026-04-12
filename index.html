@@ -63,7 +63,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-
 .btn-secondary{background:transparent;color:var(--primary);padding:16px 40px;border-radius:100px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.25s;border:1.5px solid var(--border);font-family:var(--font)}
 .btn-secondary:hover{border-color:var(--primary);background:var(--primary);color:var(--on-primary)}
 .hero-image{max-width:600px;margin:0 auto;position:relative}
-.hero-image img{border-radius:24px;width:100%}
+.hero-image img,.product-img{border-radius:24px;width:100%;background:linear-gradient(135deg,#1C1917 0%,#292524 40%,#44403C 100%);min-height:300px;object-fit:cover}
 .hero-image::after{content:'';position:absolute;inset:-24px;border-radius:40px;background:radial-gradient(ellipse at center,rgba(161,98,7,0.06) 0%,transparent 70%);z-index:-1}
 
 /* Stats */
@@ -176,7 +176,7 @@ footer p{font-size:13px;color:var(--muted)}
     </div>
   </div>
   <div class="hero-image reveal">
-    <img src="product.jpg" alt="Siguro AeroChef Pro Air Fryer with golden fries in basket, digital display showing 180 degrees">
+    <img src="product.jpg" alt="Siguro AeroChef Pro Air Fryer with golden fries in basket, digital display showing 180 degrees" onerror="this.onerror=null;this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22500%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop offset=%220%25%22 stop-color=%22%231C1917%22/><stop offset=%22100%25%22 stop-color=%22%2344403C%22/></linearGradient></defs><rect fill=%22url(%23g)%22 width=%22600%22 height=%22500%22 rx=%2224%22/><text x=%2250%25%22 y=%2248%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23A16207%22 font-family=%22system-ui%22 font-size=%2220%22 font-weight=%22600%22>SIGURO</text><text x=%2250%25%22 y=%2256%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2378716C%22 font-family=%22system-ui%22 font-size=%2214%22>AeroChef Pro</text></svg>'">
   </div>
 </section>
 
