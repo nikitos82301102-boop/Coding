@@ -1,5 +1,9 @@
 {
+  "name": "chess-game",
+  "version": "1.0.0",
+  "description": "Professional chess game with 10 ELO AI levels",
   "dependencies": {
+    "chess.js": "^1.4.0",
     "puppeteer": "^24.40.0"
   }
 }
